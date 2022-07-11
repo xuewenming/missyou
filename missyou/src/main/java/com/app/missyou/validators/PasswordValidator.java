@@ -11,7 +11,13 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class PasswordValidator implements ConstraintValidator<PasswordEqual, PersonDTO> {
 
+    /**
+     * 最小长度
+     **/
     private int min;
+    /**
+     * 最大长度
+     **/
     private int max;
 
     @Override
@@ -31,19 +37,22 @@ public class PasswordValidator implements ConstraintValidator<PasswordEqual, Per
             return false;
         }
         int length1 = password1.length();
-
-
-
+        if (!this.checkPasswordLength(length1)) {
+            return false;
+        }
         return personDTO.getPassword1().equals(personDTO.getPassword2());
     }
 
     /**
      * 校验密码长度
-     * @param length
+     *
      * @return java.lang.Boolean
      */
-    private Boolean checkPasswordLength(int length) {
-        return true;
+    private Boolean checkPasswordLength(int length1) {
+        if (length1 >= min && length1 <= max) {
+            return true;
+        }
+        return false;
     }
 
 
