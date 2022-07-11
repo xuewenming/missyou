@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#自定义api路由配置
+app:
+  api-package: com.app.missyou.api
+
+
+#测试配置
+test:
+  sample:
+    mysql:
+      url: 127.0.0.1
+      port: 99999
+  condition: dinana
+

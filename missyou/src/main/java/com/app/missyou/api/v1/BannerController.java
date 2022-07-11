@@ -1,5 +1,8 @@
 package com.app.missyou.api.v1;
 
+import com.app.missyou.service.BannerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +16,12 @@ import javax.validation.constraints.NotBlank;
  * @date 2022年06月26日 22:04
  */
 @RestController
-@RequestMapping(value = "/v1/banner")
+@RequestMapping(value = "/banner")
+@Validated
 public class BannerController {
+
+    @Autowired
+    private BannerService bannerService;
 
     /**
      * 根据Name获取Banner
@@ -23,7 +30,7 @@ public class BannerController {
      */
     @GetMapping("/name/{name}")
     public Object getByName(@PathVariable @NotBlank String name) {
-
+        bannerService.getByName(name);
         return null;
     }
 }
