@@ -2,6 +2,9 @@ package com.app.missyou.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -9,7 +12,10 @@ import java.io.Serializable;
  * 统一异常
  */
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@Setter
+@ToString
 public class UnifyResponse implements Serializable {
     /**
      * code
@@ -20,7 +26,7 @@ public class UnifyResponse implements Serializable {
      */
     private String message;
     /**
-     * 请求消息
+     * 请求方式+请求路径
      */
     private String request;
 }

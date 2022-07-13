@@ -82,9 +82,7 @@ public class GlobalExceptionAdvice {
         BindingResult bindingResult = e.getBindingResult();
         List<ObjectError> allErrors = bindingResult.getAllErrors();
         StringBuffer errorMsg = new StringBuffer();
-        allErrors.forEach(error -> {
-            errorMsg.append(error.getDefaultMessage()).append(";");
-        });
+        allErrors.forEach(error -> errorMsg.append(error.getDefaultMessage()).append(";"));
         return new UnifyResponse(10001, errorMsg.toString(), method + " " + uri);
     }
 
