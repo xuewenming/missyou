@@ -19,8 +19,6 @@ import java.util.Map;
 @Setter
 public class ExceptionCodeConfiguration {
 
-    private ExceptionCodeConfiguration() {}
-
     private Map<Integer, String> codes = new HashMap<>();
 
     /**

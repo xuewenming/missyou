@@ -10,6 +10,7 @@ spring:
     password: root123456@!@#ABx,.ssss1
     driver-class-name: com.mysql.jdbc.Driver
   jpa: #打印SQL一般只有在dev环境开启
+    show-sql: true
     properties:
-      show_sql: true
       format_sql: true
+
