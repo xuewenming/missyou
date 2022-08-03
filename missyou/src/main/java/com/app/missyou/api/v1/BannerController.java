@@ -3,6 +3,8 @@ package com.app.missyou.api.v1;
 import com.app.missyou.exception.http.NotFoundException;
 import com.app.missyou.model.Banner;
 import com.app.missyou.service.BannerService;
+import com.app.missyou.vo.BannerVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
