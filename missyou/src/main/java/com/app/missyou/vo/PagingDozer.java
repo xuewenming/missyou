@@ -12,16 +12,16 @@ import java.util.List;
 /**
  * 分页序列化操作
  */
-public class PagingDozer<T> extends Paging<T>{
+public class PagingDozer<T,K> extends Paging{
 
-    public PagingDozer(Page<T> pageT,Class<T> classK) {
+    public PagingDozer(Page<T> pageT,Class<K> classK) {
         this.initPageParameters(pageT);
         List<T> tList = pageT.getContent();
         Mapper mapper = DozerBeanMapperBuilder.buildDefault();
-        List<T> voList = new ArrayList<>();
+        List<K> voList = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(tList)) {
             tList.forEach(t -> {
-                T vo = mapper.map(t, classK);
+                K vo = mapper.map(t, classK);
                 voList.add(vo);
             });
         }
